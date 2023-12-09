@@ -9,25 +9,15 @@ class ProductsController extends Controller
 {
     public function insert_product(Request $req)
     {
-        // $product = new Product;
-        // $product->name = $req->name;
-        // $product->description =$req->description;
-        // $product->price = $req->price;
-        // $product->stock = $req->stock;
-        // $product->image_url = $req->image_url;
-        // $product->sold = $req->sold;
-        // $product->save();
+        $product = new Product;
+        $product->name = $req->name;
+        $product->description =$req->description;
+        $product->price = $req->price;
+        $product->stock = $req->stock;
+        $product->image_url = $req->image_url;
+        $product->sold = $req->sold;
+        $product->save();
 
-        $req->validate([
-            "name" => "unique:products|min:6|max:8"
-        ]);
-        $product_2 = Product::insert([
-            "name" => $req->name,
-            "description" => $req->description,
-            "price" => $req->price,
-            "stock" => $req->stock,
-            "image_url" => $req->image_url,
-        ]);
     }
     public function update_product(Request $req)
     {
