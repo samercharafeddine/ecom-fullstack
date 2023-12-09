@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 Route::post('/insert_product', [ProductsController::class, 'insert_product']);
 Route::post('/update_product', [ProductsController::class, 'update_product']);
 Route::get('/products', [ProductsController::class, 'get_products']);
+Route::post('/delete_product', [ProductsController::class,'delete_product']);

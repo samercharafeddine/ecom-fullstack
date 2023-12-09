@@ -41,6 +41,17 @@ class ProductsController extends Controller
             "products" => $product_other_way_2
         ]);
     }
+
+    public function delete_product(Request $req){
+        $id_product = $req->id_product;
+        $product = Product::find($id_product);
+        $product_other_way = Product::where("id", $req->id_product)->first();
+        $req->id_product
+        && $product_other_way->delete();
+        return response()->json([
+            "product"=> $product
+            ]);
+    }
     public function get_products()
 
     {
