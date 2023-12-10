@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\LaravelController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Http\Request;
@@ -20,3 +21,6 @@ Route::post('/insert_product', [ProductsController::class, 'insert_product']);
 Route::post('/update_product', [ProductsController::class, 'update_product']);
 Route::get('/products', [ProductsController::class, 'get_products']);
 Route::post('/delete_product', [ProductsController::class,'delete_product']);
+
+Route::post('auth/register', [AuthController::class,'register']);
+Route::post('auth/login', [AuthController::class,'login']);
