@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\Auth\AuthController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LaravelController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Http\Request;
