@@ -17,16 +17,15 @@ class ProductsController extends Controller
         $product->image_url = $req->image_url;
         $product->sold = $req->sold;
         $product->save();
-
     }
     public function update_product(Request $req)
     {
-        $id_product = $req->id_product;
+        $id_product = $req->id_order;
         $product = Product::find($id_product);
 
-        $product_other_way = Product::where('id', $req->id_product)->first();
+        $product_other_way = Product::where('id', $req->id_order)->first();
 
-        $product_other_way_2 = Product::where('id', $req->id_product)->get()[0];
+        $product_other_way_2 = Product::where('id', $req->id_order)->get()[0];
         $product->name = $req->name;
         $product->save();
 
@@ -43,10 +42,10 @@ class ProductsController extends Controller
     }
 
     public function delete_product(Request $req){
-        $id_product = $req->id_product;
+        $id_product = $req->id_order;
         $product = Product::find($id_product);
-        $product_other_way = Product::where("id", $req->id_product)->first();
-        $req->id_product
+        $product_other_way = Product::where("id", $req->id_order)->first();
+        $req->id_order
         && $product_other_way->delete();
         return response()->json([
             "product"=> $product

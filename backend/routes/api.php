@@ -22,5 +22,10 @@ Route::post('/update_product', [ProductsController::class, 'update_product']);
 Route::get('/products', [ProductsController::class, 'get_products']);
 Route::post('/delete_product', [ProductsController::class,'delete_product']);
 
+Route::post('/insert_order', [ProductsController::class, 'insert_order']);
+Route::post('/update_order', [ProductsController::class, 'update_order']);
+Route::get('/orders', [ProductsController::class, 'orders']);
+Route::post('/delete_order', [ProductsController::class,'delete_order']);
+
 Route::post('auth/register', [AuthController::class,'register']);
 Route::post('auth/login', [AuthController::class,'login']);
