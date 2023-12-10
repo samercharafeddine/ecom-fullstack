@@ -10,6 +10,8 @@ class TransactionController extends Controller
     public function get_transactions(){
         $transactions = Transaction::all();
 
-        return view("transactions.get_transactions",["transactions"=> $transactions]);
+        return response()->json([
+            "transactions" => $transactions
+        ]);
     }
 }

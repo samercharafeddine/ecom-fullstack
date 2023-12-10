@@ -43,7 +43,7 @@ class OrderItemsController extends Controller
         ]);
     }
 
-    public function delete_product(Request $req){
+    public function delete_order_item(Request $req){
         $id_order_items = $req->id_order_item;
         $order_item = OrderItem::find($id_order_items);
         $req->id_order_item
@@ -52,7 +52,7 @@ class OrderItemsController extends Controller
             "order_item"=> $order_item
             ]);
     }
-    public function get_products()
+    public function get_order_item()
 
     {
         $order_items = OrderItem::all();
