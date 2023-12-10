@@ -20,22 +20,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/insert_product', [ProductsController::class, 'insert_product']);
-Route::post('/update_product', [ProductsController::class, 'update_product']);
-Route::get('/products', [ProductsController::class, 'get_products']);
-Route::post('/delete_product', [ProductsController::class,'delete_product']);
+Route::controller(ProductsController::class)->group(function () {
+    Route::post('/insert_product', 'insert_product');
+    Route::post('/update_product','update_product');
+    Route::get('/products', 'get_products');
+    Route::delete('/delete_product','delete_product');
+});
 
 Route::post('/insert_order', [OrderController::class, 'insert_order']);
 Route::post('/update_order', [OrderController::class, 'update_order']);
 Route::get('/get_order', [OrderController::class, 'get_order']);
-Route::post('/delete_order', [OrderController::class,'delete_order']);
+Route::delete('/delete_order', [OrderController::class,'delete_order']);
 
 Route::post('/insert_order_item', [OrderItemsController::class,'insert_order_item']);
 Route::post('/update_order_item', [OrderItemsController::class,'update_order_item']);
-Route::post('/delete_order_item', [OrderItemsController::class,'delete_order_item']);
-Route::post('/get_order_item', [OrderItemsController::class,'get_order_item']);
+Route::delete('/delete_order_item', [OrderItemsController::class,'delete_order_item']);
+Route::get('/get_order_item', [OrderItemsController::class,'get_order_item']);
 
-Route::post('/transactions', [TransactionController::class,'get_transactions']);
+Route::get('/transactions', [TransactionController::class,'get_transactions']);
 
 Route::post('auth/register', [AuthController::class,'register']);
 Route::post('auth/login', [AuthController::class,'login']);
